@@ -1,1 +1,16 @@
-map
+#Map of birth places of French-language women writers ("écrivaines d'expression française"), 1900-present
+SELECT ?item ?itemLabel ?image ?placeofbirth ?coord ?dob
+WHERE {
+?item wdt:P106/wdt:P279* wd:Q36180.
+?item wdt:P21 wd:Q6581072.
+?item wdt:P31 wd:Q5.
+ ?item wdt:P6886 wd:Q150.
+OPTIONAL {?item wdt:P19 ?placeofbirth.
+?placeofbirth wdt:P625 ?coord. }
+OPTIONAL {?item wdt:P569 ?dob.}
+  
+FILTER (?birth > "1900-01-01"^^xsd:dateTime && ?birth < "2000-01-01"^^xsd:dateTime)
+  
+SERVICE wikibase:label { bd:serviceParam wikibase:language "fr, ar , en, de".}
+ }
+#defaultView:Map
