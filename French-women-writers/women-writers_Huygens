@@ -1,0 +1,10 @@
+#Women writers in French Wikidata with a Women Writers Project ID and a birth and death year.
+SELECT ?author ?authorLabel {
+
+    ?author wdt:P2533 ?wid;    
+            wdt:P21 wd:Q6581072;  
+            wdt:P569 ?birth;
+            wdt:P570 ?death;
+
+    SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
+                             }
